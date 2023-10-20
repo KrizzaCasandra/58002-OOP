@@ -1,0 +1,134 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyODkZ+yYJobCDOTG7DBvRpP",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/KrizzaCasandra/58002-OOP/blob/main/Activity%207%20(from%20g26)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Ma. Krizza Casandra Plaza\n",
+        "#Display Graph Edges\n",
+        "\n",
+        "class graph:\n",
+        "   def __init__(self,gdict=None):\n",
+        "      if gdict is None:\n",
+        "         gdict = {}\n",
+        "      self.gdict = gdict\n",
+        "\n",
+        "   def edges(self):\n",
+        "      return self.findedges()\n",
+        "# Find the distinct list of edges\n",
+        "   def findedges(self):\n",
+        "      edgename = []\n",
+        "      for vrtx in self.gdict:\n",
+        "         for nxtvrtx in self.gdict[vrtx]:\n",
+        "            if {nxtvrtx, vrtx} not in edgename:\n",
+        "               edgename.append({vrtx, nxtvrtx})\n",
+        "      return edgename\n",
+        "# Create the dictionary with graph elements\n",
+        "graph_elements = {\n",
+        "   \"q\" : [\"s\",\"t\", \"w\"],\n",
+        "   \"r\" : [\"u\", \"y\"],\n",
+        "   \"s\" : [\"v\"],\n",
+        "   \"t\" : [\"x\",\"y\"],\n",
+        "   \"u\" : [\"y\"],\n",
+        "   \"v\" : [\"w\"],\n",
+        "   \"w\" : [\"s\"],\n",
+        "   \"x\" : [\"z\"],\n",
+        "   \"y\" : [\"q\"],\n",
+        "   \"z\" : [\"x\"]\n",
+        "}\n",
+        "g = graph(graph_elements)\n",
+        "print(g.edges())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "P1I7tVvhqgYi",
+        "outputId": "6af3376b-fed6-440c-c694-cfa62973bf65"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[{'q', 's'}, {'t', 'q'}, {'w', 'q'}, {'r', 'u'}, {'r', 'y'}, {'v', 's'}, {'t', 'x'}, {'t', 'y'}, {'y', 'u'}, {'w', 'v'}, {'w', 's'}, {'z', 'x'}, {'y', 'q'}]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Ma.Krizza Casandra Plaza\n",
+        "#Display Graph Vertices\n",
+        "\n",
+        "class graph:\n",
+        "   def __init__(self,gdict=None):\n",
+        "      if gdict is None:\n",
+        "         gdict = []\n",
+        "      self.gdict = gdict\n",
+        "# Get the keys of the dictionary\n",
+        "   def getVertices(self):\n",
+        "      return list(self.gdict.keys())\n",
+        "# Create the dictionary with graph elements\n",
+        "graph_elements = {\n",
+        "   \"q\" : [\"s\",\"t\", \"w\"],\n",
+        "   \"r\" : [\"u\", \"y\"],\n",
+        "   \"s\" : [\"v\"],\n",
+        "   \"t\" : [\"x\",\"y\"],\n",
+        "   \"u\" : [\"y\"],\n",
+        "   \"v\" : [\"w\"],\n",
+        "   \"w\" : [\"s\"],\n",
+        "   \"x\" : [\"z\"],\n",
+        "   \"y\" : [\"q\"],\n",
+        "   \"z\" : [\"x\"]\n",
+        "}\n",
+        "g = graph(graph_elements)\n",
+        "print(g.getVertices())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6MFMfJlxtjE6",
+        "outputId": "d1b7a226-a44e-4a92-ebfa-ae09bc045f6b"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
